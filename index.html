@@ -24,10 +24,23 @@
         }
         img.profile-pic {
             border-radius: 50%;
-            margin-top: 100px auto;
+            margin-top: 100px;
             width: 200px; /* Set the width of the profile picture */
             height: 200px; /* Set the height of the profile picture */
             object-fit: cover; /* Ensures the image maintains aspect ratio */
+        }
+        
+        /* Responsive styling for screens narrower than 768 pixels (like iPhones) */
+        @media (max-width: 768px) {
+            img.profile-pic {
+                margin-top: 50px; /* Reduced margin for smaller screens */
+            }
+        }
+
+        @media (max-width: 320px) {
+            img.profile-pic {
+                margin-top: 20px; /* Even smaller margin for small screens like iPhone 5/SE */
+            }
         }
     </style>
 </head>
