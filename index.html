@@ -78,10 +78,51 @@
                 margin-top: 20px; /* Even smaller margin for small screens like iPhone 5/SE */
             }
         }
+
+        .wave-container {
+            display: none; /* Hides the waves on smaller screens by default */
+        }
+
+        /* Laptop and larger screens */
+        @media (min-width: 1024px) {
+            .wave-container {
+                display: block;
+                position: fixed;
+                top: 0;
+                z-index: -1; /* Ensure it doesn't overlap content */
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .wave-left {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+
+            .wave-right {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                transform: rotateY(180deg); /* Flip the wave for the right side */
+            }
+        }
     </style>
 </head>
 <body>
 
+    <div class="wave-container">
+        <!-- SVG for the left wave -->
+        <svg class="wave-left" width="200px" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,100 C15,100 35,10 100,100 Z" style="fill: #yourColor;"></path>
+        </svg>
+        <!-- SVG for the right wave -->
+        <svg class="wave-right" width="200px" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,100 C15,100 35,10 100,100 Z" style="fill: #yourColor;"></path>
+        </svg>
+    </div>
+    
     <header>
         <img src="images/IMG_0702.png" alt="Your Name" class="profile-pic">
         <div class="profile-info">
@@ -119,7 +160,7 @@
             <p>Community and professional services you offer...</p>
         </section>
     </main>
-
+    
     <footer>
         <p>Contact information or footer notes...</p>
     </footer>
