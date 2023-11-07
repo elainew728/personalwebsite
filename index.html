@@ -79,49 +79,43 @@
             }
         }
 
-        .wave-container {
+        .wave {
             display: none; /* Hides the waves on smaller screens by default */
+            position: fixed;
+            bottom: 0;
+            z-index: -1; /* Ensure it doesn't overlap content */
         }
 
         /* Laptop and larger screens */
         @media (min-width: 1024px) {
-            .wave-container {
+            .wave {
                 display: block;
-                position: fixed;
-                top: 0;
-                z-index: -1; /* Ensure it doesn't overlap content */
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
             }
 
             .wave-left {
-                position: absolute;
                 left: 0;
-                bottom: 0;
+                width: 50%; /* Half of the screen width */
+                /* Additional styling to flip the wave horizontally if needed */
             }
 
             .wave-right {
-                position: absolute;
                 right: 0;
-                bottom: 0;
-                transform: rotateY(180deg); /* Flip the wave for the right side */
+                width: 50%; /* Half of the screen width */
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="wave-container">
-        <!-- SVG for the left wave -->
-        <svg class="wave-left" width="200px" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M0,100 C15,100 35,10 100,100 Z" style="fill: #E8E8E8;"></path>
-        </svg>
-        <!-- SVG for the right wave -->
-        <svg class="wave-right" width="200px" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M0,100 C15,100 35,10 100,100 Z" style="fill: #99CCFF;"></path>
-        </svg>
-    </div>
+    <!-- SVG for the left wave -->
+    <svg class="wave wave-left" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M100,0 Q50,100 100,100 Q50,0 0,0" style="fill: #99CCFF;"></path>
+    </svg>
+
+    <!-- SVG for the right wave -->
+    <svg class="wave wave-right" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,0 Q50,100 0,100 Q50,0 100,0" style="fill: #99CCFF;"></path>
+    </svg>
     
     <header>
         <img src="images/IMG_0702.png" alt="Your Name" class="profile-pic">
